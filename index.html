@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #searchBox { margin-bottom: 20px; }
+        .highlight { background-color: yellow; }
+    </style>
+    <script>
+        function highlightSearchTerm() {
+            let searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            let paragraphs = document.getElementsByTagName('p');
+            for (let paragraph of paragraphs) {
+                let text = paragraph.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    paragraph.classList.add('highlight');
+                } else {
+                    paragraph.classList.remove('highlight');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Product Search</h1>
+    <div id="searchBox">
+        <input type="text" id="searchInput" placeholder="Type to search...">
+        <button onclick="highlightSearchTerm()">Search</button>
+    </div>
+    <p>Product information goes here. Include all the product details you want to be searchable.</p>
+    <p>Another paragraph of product details. Continue to add as much content as needed.</p>
+</body>
+</html>
